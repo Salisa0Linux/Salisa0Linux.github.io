@@ -10,7 +10,7 @@
 
         function inputNumber() {
             var positiveint = prompt("Enter positive integer: ")
-            if (positiveint <= 0) {
+            if (!Number.isInteger(Number(positiveint)) || positiveint <= 0) {
                 inputNumber()
             } else {
                 showPrimes(positiveint);
