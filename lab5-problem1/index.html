@@ -10,7 +10,7 @@
 
         function inputNumber() {
             var positiveint = prompt("Enter positive integer: ")
-            if (!Number.isInteger(Number(positiveint)) || Number(positiveint) <=0) {
+            if (!Number.isInteger(Number(positiveint)) || Number(positiveint) <= 0) {
                 inputNumber()
             } else {
                 showPrimes(positiveint);
@@ -19,12 +19,12 @@
         }
         function showPrimes(positiveint) {
             var primes = [];
-            for(let i = 2; i < positiveint; i++){
-                if(isPrime(i)) {
+            for (let i = 2; i < positiveint; i++) {
+                if (isPrime(i)) {
                     primes.push(i);
                 }
             }
-            alert('For n = ' + positiveint + ' prime number are ' + primes.join(', '));
+            alert('For n = ' + positiveint + ' prime number are ' + primes.join(' , '));
         }
         function isPrime(num) {
             for (let i = 2; i < num; i++) {
@@ -39,11 +39,13 @@
         }
     </style>
 </head>
+
 <body>
     <h3>Prime Numbers Finder!</h3>
     <h2>Write the web app to prompt accepting for a positive integer number</h2>
     <ul>
-        <li>If the entered text is not a positive integer number, then the web app will keep asking for a number until the valid positive integer is entered</li>
+        <li>If the entered text is not a positive integer number, then the web app will keep asking for a number until
+            the valid positive integer is entered</li>
         <li>If the entered text is a positive integer, then the web app will add into a list of prime numbers</li>
     </ul>
     <h2>Hint:</h2>
