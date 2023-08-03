@@ -1,0 +1,18 @@
+body {
+  background-color: lightseagreen;
+}
+
+
+@media all and (max-height: 410px) {
+  div {
+    position: static;
+  }
+}
+.phrase {
+  font-weight: bold;
+	color: #FFFFFF;
+}
+
+.output {
+  font-style: italic;
+}

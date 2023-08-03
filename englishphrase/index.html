@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>English Phrase Matcher</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      #my-phrase-btn {
+        position: fixed;
+        top: 250px;
+        right: 0px;
+      }
+    </style>
+</head>
+  </head>
+
+  <body>
+    <h1 style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">ฝึกอ่านภาษาอังกฤษ</h1>
+    <p>กดที่ปุ่มเพื่อเริ่มทดสอบการอ่าน</p>
+
+    <button title="Click to start a new test">Start new test</button>
+
+    <button id="my-phrase-btn" title="Go to My English Phrase" onclick="window.location.href='myphrase.html';">My English Phrase</button>
+
+    <div>
+      <p class="phrase">Phrase...</p>
+      <button title="Click to listen to the reading." onclick="readPhrase()">Read</button>
+
+      <p class="result">Right or wrong?</p>
+      <p class="output">...diagnostic messages</p>
+    </div>
+
+    <!--<footer style="position: fixed; top: 0; right: 0; padding: 5px; background-color: ; color: whitesmoke; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+      Programmed by: Salisa Ponthongmak 643040213-9
+    </footer>-->
+
+    <script src="script.js"></script>
+    <script>
+      let speech = new SpeechSynthesisUtterance();
+      speech.lang = "en";
+
+      let voices = [];
+      window.speechSynthesis.onvoiceschanged = () => {
+        voices = window.speechSynthesis.getVoices();
+        speech.voice = voices[0];
+        let voiceSelect = document.querySelector("#voices");
+        voices.forEach((voice, i) => (voiceSelect.options[i] = new Option(voice.name, i)));
+      };
+
+      function readPhrase() {
+        const phraseText = document.querySelector('.phrase').textContent;
+        speech.text = phraseText;
+        window.speechSynthesis.speak(speech);
+      }
+    </script>
+
+  </body>
+</html>
